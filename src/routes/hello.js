@@ -13,7 +13,7 @@ router
         {
           endpoint: `/api/v1/resources`,
           description: 'list all resources',
-          requiresAuthentication: false      
+          requiresAuthentication: true      
         },
         {
           endpoint: `/api/v1/resources/:resource_id`,
