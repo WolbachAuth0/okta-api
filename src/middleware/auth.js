@@ -4,8 +4,7 @@ const responseFormatter = require('./responseFormatter')
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: process.env.ISSUER
 })
-const audience = 'api://default'
-
+const audience = process.env.AUDIENCE
 
 function unauthorized (msg) {
   return {
