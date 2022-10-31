@@ -11,13 +11,13 @@ router
       const message = 'Hello from the API server !'
       data = [
         {
-          endpoint: `/api/v1/resources`,
-          description: 'list all resources',
+          endpoint: `/api/v1/posts`,
+          description: 'list all post resources',
           requiresAuthentication: true      
         },
         {
-          endpoint: `/api/v1/resources/:resource_id`,
-          description: 'get resource by id',
+          endpoint: `/api/v1/posts/:post_id`,
+          description: 'get post resource by id',
           requiresAuthentication: true
         }
       ]
