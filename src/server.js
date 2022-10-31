@@ -11,7 +11,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const enforceHTTPS = require('./middleware/enforceHTTPS')
-// const { oidcMiddleware } = require('./middleware/auth')
 const { routerLogger, errorLogger } = require('./models/logger')
 
 const app = express()
@@ -25,10 +24,8 @@ app.use(cors())
 app.use(helmet({ contentSecurityPolicy: false }))
 
 if(process.env.NODE_ENV === 'production') {
-  // oidc will not work without https
   app.use(enforceHTTPS)
 }
-// app.use(oidcMiddleware)
 app.use('/', serveStatic(path.join(__dirname, './../public')))
 
 // API routes
