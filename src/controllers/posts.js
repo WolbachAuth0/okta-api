@@ -1,7 +1,9 @@
 const axios = require('axios')
 const { logger } = require('express-winston')
-const responseFormatter = require('./../middleware/responseFormatter')
+const responseFormatter = require('../middleware/responseFormatter')
 const items = require('./data')
+
+// https://jsonplaceholder.typicode.com/
 
 module.exports = {
   listAll,
@@ -52,7 +54,7 @@ async function listAllLocal (req, res) {
 
 async function getByID (req, res) {
   try {
-    const id = req.params.resource_id
+    const id = req.params.post_id
 
     const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
         
@@ -70,7 +72,7 @@ async function getByID (req, res) {
 
 async function getByIDLocal (req, res) {
   try {
-    const id = req.params.resource_id
+    const id = req.params.post_id
     
     const item = items.find(x => x.id == id)
     
