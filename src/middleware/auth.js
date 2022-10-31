@@ -39,7 +39,30 @@ async function validateAccessToken (req, res, next) {
   }
 }
 
+function assertJWTScopes (scopes) {
+  
+  return async function (req, res, next) {
+    
+    if (!req.jwt) {
+      const options = unauthorized('No access token')
+      const json = responseFormatter(req, res, options)
+      return res.status(options.status).json(json)
+    }
+
+    console.log('scopes', scopes)
+    console.log('scp', req.jwt.claims.scp)
+
+    if (scopes.every(x => req.jwt.claims.scp.includes(x))) {
+      next()
+    } else {
+      const options = unauthorized('insufficient scope')
+      const json = responseFormatter(req, res, options)
+      return res.status(options.status).json(json)
+    }
+  }
+}
+
 module.exports = {
   validateAccessToken,
-
+  assertJWTScopes
 }
