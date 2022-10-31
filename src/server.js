@@ -32,7 +32,7 @@ if(process.env.NODE_ENV === 'production') {
 app.use('/', serveStatic(path.join(__dirname, './../public')))
 
 // API routes
-app.use('/', require('./routes/hello')) // should serve api spec
+app.use('/', require('./routes/manifest'))
 app.use('/api/v1/posts', require('./routes/posts'))
 
 // this * route is to serve project on different page routes except root `/`

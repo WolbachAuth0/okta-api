@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const responseFormatter = require('./../middleware/responseFormatter')
+const responseFormatter = require('../middleware/responseFormatter')
 
 module.exports = router
 
