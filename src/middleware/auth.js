@@ -1,6 +1,8 @@
 const OktaJwtVerifier = require('@okta/jwt-verifier')
 const responseFormatter = require('./responseFormatter')
 
+
+// https://www.npmjs.com/package/@okta/jwt-verifier
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: process.env.ISSUER
 })

@@ -8,7 +8,7 @@ module.exports = router
 router.route('/')
   .all(validateAccessToken)
   .get(
-    assertJWTScopes(['update:posts']),
+    assertJWTScopes(['read:posts']),
     posts.listAll
   )
 
@@ -18,4 +18,3 @@ router.route('/:post_id')
     assertJWTScopes(['read:posts']),
     posts.getByID
   )
-

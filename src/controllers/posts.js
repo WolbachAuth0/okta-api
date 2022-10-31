@@ -1,5 +1,4 @@
 const axios = require('axios')
-const { logger } = require('express-winston')
 const responseFormatter = require('../middleware/responseFormatter')
 
 // https://jsonplaceholder.typicode.com/
